@@ -1,0 +1,31 @@
+
+<div class="bg-slate-800 rounded-lg shadow-lg overflow-hidden h-full flex flex-col transition-transform transform hover:-translate-y-1 hover:shadow-sky-500/30">
+  <div class="p-5 flex-grow">
+    <div class="flex justify-between items-start">
+      <h3 class="text-xl font-bold text-slate-100">{{ book().title }}</h3>
+      <span [class]="'px-2 py-1 text-xs font-semibold rounded-full ' + statusColorClass()">
+        {{ book().status }}
+      </span>
+    </div>
+    <p class="text-slate-400 text-sm mt-1">by {{ book().author }}</p>
+    <p class="text-slate-500 text-xs mt-2 uppercase tracking-wider">{{ book().genre }}</p>
+
+    <div class="flex items-center mt-4">
+      @for (star of [1,2,3,4,5]; track star) {
+        <svg
+          [class]="star <= book().rating ? 'text-yellow-400' : 'text-slate-600'"
+          class="h-5 w-5 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20">
+          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+        </svg>
+      }
+      <span class="text-slate-400 text-sm ml-2">{{ book().rating }} / 5</span>
+    </div>
+  </div>
+
+  <div class="bg-slate-700/50 p-3 flex justify-end space-x-2">
+    <button (click)="onEdit()" class="text-sm text-sky-400 hover:text-sky-300 font-semibold transition-colors">Edit</button>
+    <button (click)="onDelete()" class="text-sm text-red-500 hover:text-red-400 font-semibold transition-colors">Delete</button>
+  </div>
+</div>

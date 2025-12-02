@@ -1,0 +1,5 @@
+{
+  "name": "Personal Digital Library",
+  "description": "A web app to store and manage information about your books. You can add, view, edit, and delete books from your personal library.",
+  "requestFramePermissions": []
+}
